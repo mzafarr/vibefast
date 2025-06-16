@@ -10,8 +10,8 @@
     --card-foreground: 222.2 84% 4.9%;
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
-    --primary: 142 76% 36%;
-    --primary-foreground: 355.7 100% 97.3%;
+    --primary: 217 91% 60%; /* Blue primary */
+    --primary-foreground: 0 0% 98%;
     --secondary: 210 40% 98%;
     --secondary-foreground: 222.2 84% 4.9%;
     --muted: 210 40% 98%;
@@ -22,9 +22,13 @@
     --destructive-foreground: 210 40% 98%;
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 142 76% 36%;
+    --ring: 217 91% 60%;
     --radius: 0.5rem;
     --font-bricolage: "Bricolage Grotesque", system-ui, sans-serif;
+    --success: 142 76% 36%; /* Keep green for success/money */
+    --warning: 45 93% 47%; /* Amber for urgency */
+    --sky-400: #38bdf8;
+    --sky-500: #0ea5e9;
   }
 
   .dark {
@@ -34,7 +38,7 @@
     --card-foreground: 210 40% 98%;
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
-    --primary: 142 76% 36%;
+    --primary: 217 91% 60%; /* Blue primary */
     --primary-foreground: 222.2 84% 4.9%;
     --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 210 40% 98%;
@@ -46,7 +50,11 @@
     --destructive-foreground: 210 40% 98%;
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
-    --ring: 142 76% 36%;
+    --ring: 217 91% 60%;
+    --success: 142 76% 36%; /* Keep green for success/money */
+    --warning: 45 93% 47%; /* Amber for urgency */
+    --sky-400: #38bdf8;
+    --sky-500: #0ea5e9;
   }
 }
 
@@ -84,6 +92,30 @@
   .font-bricolage {
     font-family: var(--font-bricolage);
   }
+
+  .text-success {
+    color: hsl(var(--success));
+  }
+
+  .bg-success {
+    background-color: hsl(var(--success));
+  }
+
+  .text-warning {
+    color: hsl(var(--warning));
+  }
+
+  .bg-warning {
+    background-color: hsl(var(--warning));
+  }
+
+  .border-success {
+    border-color: hsl(var(--success));
+  }
+
+  .border-warning {
+    border-color: hsl(var(--warning));
+  }
 }
 
 @keyframes animate-in {
@@ -120,6 +152,15 @@
 @keyframes drawPath {
   to {
     stroke-dashoffset: 0;
+  }
+}
+
+@keyframes progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 78%;
   }
 }
 
@@ -187,4 +228,8 @@ html {
   font-weight: 400;
   font-display: swap;
   src: local("Bricolage Grotesque"), local("BricolageGrotesque-Regular");
+}
+
+.progress-bar {
+  animation: progress 2s ease-out forwards;
 }

@@ -6,9 +6,35 @@ import { Button } from "@/components/ui/button"
 
 export function ShipItTodaySection() {
   const [showButton, setShowButton] = React.useState(false)
+  const [shouldStartAnimation, setShouldStartAnimation] = React.useState(false)
+  const sectionRef = React.useRef<HTMLElement>(null)
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setShouldStartAnimation(true)
+        }
+      },
+      {
+        threshold: 0.3,
+        rootMargin: "0px 0px -100px 0px",
+      },
+    )
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current)
+    }
+
+    return () => {
+      if (sectionRef.current) {
+        observer.unobserve(sectionRef.current)
+      }
+    }
+  }, [])
 
   return (
-    <section className="bg-muted/30 py-16 lg:py-24">
+    <section ref={sectionRef} className="bg-muted/30 py-16 lg:py-24">
       <div className="container mx-auto px-4 sm:px-6">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
@@ -17,6 +43,7 @@ export function ShipItTodaySection() {
               <AppleHelloEnglishEffect
                 speed={1.2}
                 className="h-16 sm:h-20 lg:h-24 text-primary"
+                shouldStart={shouldStartAnimation}
                 onAnimationComplete={() => setShowButton(true)}
               />
             </div>

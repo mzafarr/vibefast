@@ -2,10 +2,17 @@
 import { Github, Twitter, Mail } from "lucide-react"
 
 export function Footer() {
+  const freeTools = [
+    { name: "App Store Policy Chatbot", href: "/tools/policy-chatbot" },
+    { name: "Screenshot Generator", href: "/tools/screenshot-generator" },
+    { name: "App Logo Generator", href: "/tools/logo-generator" },
+    { name: "ASO Review Tool", href: "/tools/aso-reviewer" },
+  ]
+
   return (
     <footer className="bg-muted/50 border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 py-12">
-        <div className="grid md:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-5 gap-8">
           <div className="md:col-span-2">
             <h3 className="text-xl font-bold text-foreground mb-4">VibeFast</h3>
             <p className="text-muted-foreground mb-6 max-w-md">
@@ -51,6 +58,19 @@ export function Footer() {
                   Changelog
                 </a>
               </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="font-semibold text-foreground mb-4">Free Tools</h4>
+            <ul className="space-y-2 text-muted-foreground">
+              {freeTools.map((tool, index) => (
+                <li key={index}>
+                  <a href={tool.href} className="hover:text-primary transition-colors text-sm">
+                    {tool.name}
+                  </a>
+                </li>
+              ))}
             </ul>
           </div>
 

@@ -45,8 +45,8 @@ export function ProblemSolutionSection() {
         </h2>
 
         <p className="mt-8 text-lg text-muted-foreground max-w-3xl mx-auto">
-          Authentication, Onboarding, In-App Purchases, Paywalls, Securing API Key in backend, Cloud Database,
-          Analytics, Settings, Collect User Feedback...
+          Authentication, Onboarding, In-App Purchases with RevenueCat, Paywalls, Securing API Key in backend, Cloud
+          Database, Analytics, Settings, Collect User Feedback...
         </p>
 
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 text-left">

@@ -6,17 +6,18 @@ import { cn } from "@/lib/utils"
 type Props = React.ComponentProps<"svg"> & {
   speed?: number
   onAnimationComplete?: () => void
+  shouldStart?: boolean
 }
 
-function AppleHelloEnglishEffect({ className, speed = 1, onAnimationComplete, ...props }: Props) {
+function AppleHelloEnglishEffect({ className, speed = 1, onAnimationComplete, shouldStart = true, ...props }: Props) {
   React.useEffect(() => {
-    if (onAnimationComplete) {
+    if (onAnimationComplete && shouldStart) {
       const timer = setTimeout(() => {
         onAnimationComplete()
       }, 3500 / speed)
       return () => clearTimeout(timer)
     }
-  }, [onAnimationComplete, speed])
+  }, [onAnimationComplete, speed, shouldStart])
 
   return (
     <svg
@@ -36,8 +37,8 @@ function AppleHelloEnglishEffect({ className, speed = 1, onAnimationComplete, ..
         style={{
           strokeLinecap: "round",
           strokeDasharray: "1000",
-          strokeDashoffset: "1000",
-          animation: `drawPath 0.8s ease-in-out forwards`,
+          strokeDashoffset: shouldStart ? "0" : "1000",
+          animation: shouldStart ? `drawPath 0.8s ease-in-out forwards` : "none",
         }}
       />
 
@@ -47,8 +48,8 @@ function AppleHelloEnglishEffect({ className, speed = 1, onAnimationComplete, ..
         style={{
           strokeLinecap: "round",
           strokeDasharray: "3000",
-          strokeDashoffset: "3000",
-          animation: `drawPath 2.8s ease-in-out 0.7s forwards`,
+          strokeDashoffset: shouldStart ? "0" : "3000",
+          animation: shouldStart ? `drawPath 2.8s ease-in-out 0.7s forwards` : "none",
         }}
       />
 
@@ -63,15 +64,21 @@ function AppleHelloEnglishEffect({ className, speed = 1, onAnimationComplete, ..
   )
 }
 
-function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete, ...props }: Props) {
+function AppleHelloVietnameseEffect({
+  className,
+  speed = 1,
+  onAnimationComplete,
+  shouldStart = true,
+  ...props
+}: Props) {
   React.useEffect(() => {
-    if (onAnimationComplete) {
+    if (onAnimationComplete && shouldStart) {
       const timer = setTimeout(() => {
         onAnimationComplete()
       }, 7800 / speed)
       return () => clearTimeout(timer)
     }
-  }, [onAnimationComplete, speed])
+  }, [onAnimationComplete, speed, shouldStart])
 
   return (
     <svg
@@ -90,8 +97,8 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         style={{
           strokeLinecap: "round",
           strokeDasharray: "300",
-          strokeDashoffset: "300",
-          animation: `drawPath 0.3s ease-in-out forwards`,
+          strokeDashoffset: shouldStart ? "0" : "300",
+          animation: shouldStart ? `drawPath 0.3s ease-in-out forwards` : "none",
         }}
       />
 
@@ -100,8 +107,8 @@ function AppleHelloVietnameseEffect({ className, speed = 1, onAnimationComplete,
         style={{
           strokeLinecap: "round",
           strokeDasharray: "700",
-          strokeDashoffset: "700",
-          animation: `drawPath 0.7s ease-in-out 0.4s forwards`,
+          strokeDashoffset: shouldStart ? "0" : "700",
+          animation: shouldStart ? `drawPath 0.7s ease-in-out 0.4s forwards` : "none",
         }}
       />
 
