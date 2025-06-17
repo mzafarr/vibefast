@@ -121,7 +121,7 @@ export default function RootLayout({
           type="font/woff2"
           crossOrigin="anonymous"
         />
-
+        <meta name="robots" content="noindex, nofollow" />
         {/* Favicon and app icons */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
