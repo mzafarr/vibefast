@@ -1,7 +1,7 @@
-"use client"
-import { X, Check } from "lucide-react"
-import { Card, CardContent, CardFooter } from "@/components/ui/card"
-import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar"
+"use client";
+import { X, Check } from "lucide-react";
+import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const testimonials = [
   {
@@ -11,6 +11,7 @@ const testimonials = [
     handle: "@marc_louvion",
     stats: "125K followers on X | $70k/month",
     avatar: "ML",
+    imagePath: "avatars/marc.webp"
   },
   {
     quote:
@@ -19,35 +20,37 @@ const testimonials = [
     handle: "@levelsio",
     stats: "526K followers on X | $300k/month",
     avatar: "PL",
+    imagePath: "avatars/levelsio.webp"
   },
   {
-    quote: "You build 10 products. 9 products will fail. 1 product will change your life 🙏",
+    quote:
+      "You build 10 products. 9 products will fail. 1 product will change your life 🙏",
     author: "Tony Dinh",
     handle: "@tdinh_me",
     stats: "138K followers on X | $50k/month",
     avatar: "TD",
+    imagePath: "avatars/3rd-guy.webp"
   },
-]
+];
 
 export function ProblemSolutionSection() {
   return (
-    <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-24 text-center">
+    <section className="bg-primary/10 container mx-auto sm:px-6 py-20 text-center">
       <div className="max-w-5xl mx-auto">
-        <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground space-y-4">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-4">
-            <X className="w-8 h-8 sm:w-12 sm:h-12 text-red-500 flex-shrink-0" />
-            <span>Sorry, but 90% of your products will fail</span>
+        <h2 className="text-3xl sm:text-[32px] font-bold tracking-tight text-foreground space-y-8 max-w-[640px] mx-auto">
+          <div>
+            <span className="mr-2">❌</span> Sorry, but 90% of your products
+            will fail
           </div>
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Check className="w-8 h-8 sm:w-12 sm:h-12 text-green-500 flex-shrink-0" />
-            <span>Launch more apps and faster without writing repetitive boilerplate code</span>
+          <div>
+            <span className="mr-2">✅</span> Launch more apps and faster without
+            writing repetitive boilerplate code
           </div>
         </h2>
 
-        <p className="mt-8 text-lg text-muted-foreground max-w-3xl mx-auto">
-          Authentication, Onboarding, In-App Purchases with RevenueCat, Paywalls, Securing API Key in backend, Cloud
-          Database, Analytics, Settings, Collect User Feedback...
-        </p>
+        {/* <p className="mt-8 text-lg text-muted-foreground max-w-3xl mx-auto">
+
+        </p> */}
 
         <div className="mt-16 grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 text-left">
           {testimonials.map((testimonial, index) => (
@@ -56,16 +59,24 @@ export function ProblemSolutionSection() {
               className="bg-card border-border p-6 flex flex-col justify-between h-full hover:shadow-lg transition-shadow duration-300"
             >
               <CardContent className="p-0">
-                <p className="text-muted-foreground leading-relaxed">"{testimonial.quote}"</p>
+                <p className="text-muted-foreground leading-relaxed">
+                  "{testimonial.quote}"
+                </p>
               </CardContent>
               <CardFooter className="p-0 mt-6 pt-6 border-t border-border flex justify-between items-center">
                 <div className="flex-1">
-                  <p className="font-semibold text-foreground">{testimonial.author}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.handle}</p>
-                  <p className="text-sm text-muted-foreground">{testimonial.stats}</p>
+                  <p className="font-semibold text-foreground">
+                    {testimonial.author}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.handle}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {testimonial.stats}
+                  </p>
                 </div>
-                <Avatar className="ml-4">
-                  <AvatarImage src={`/placeholder.svg?height=40&width=40`} />
+                <Avatar className="ml-4 w-14 h-14">
+                  <AvatarImage className="" src={testimonial.imagePath} />
                   <AvatarFallback>{testimonial.avatar}</AvatarFallback>
                 </Avatar>
               </CardFooter>
@@ -74,5 +85,5 @@ export function ProblemSolutionSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

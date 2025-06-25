@@ -1,8 +1,7 @@
 "use client"
-import { Check, Zap, Clock, ArrowLeft } from "lucide-react"
+import { Check, Zap, Clock, ArrowLeft, Gift } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card } from "@/components/ui/card"
-import { VibeFastSuccessNotifications } from "@/components/vibefast-success-notifications"
 import { useState } from "react"
 
 const pricingPlans = [
@@ -14,8 +13,7 @@ const pricingPlans = [
     features: [
       "Everything in Open Source",
       "Charts & Analytics",
-      "Image Generator & Analyzer",
-      "Voicebot & Chatbot",
+      "Many AI Features",
       "iOS Widget (coming soon)",
       "Landing Page Template",
       "Push Notifications",
@@ -32,7 +30,7 @@ const pricingPlans = [
     name: "VibePro",
     description: "Most popular choice",
     price: 149,
-    fullPrice: 349,
+    fullPrice: 299,
     features: [
       "Everything in VibeCore, and...",
       "$216+ Worth of Premium Bonuses",
@@ -64,7 +62,6 @@ const pricingPlans = [
       "Localization support",
       "Settings page",
       "React Native + Expo + Convex",
-      "Community support",
     ],
     popular: false,
     cta: "Start Free",
@@ -193,26 +190,25 @@ export function PricingSection() {
 
   return (
     <section id="pricing" className="container mx-auto px-4 sm:px-6 py-16 lg:py-24 relative">
-      {/* Animated Success Notifications - Now positioned absolutely */}
-      <VibeFastSuccessNotifications />
-
       <div className="text-center mb-16">
         {/* Early Bird Badge */}
         <div className="inline-flex items-center gap-2 bg-warning/10 text-warning border border-warning/20 px-4 py-2 rounded-full text-sm font-semibold mb-6">
           <Clock className="w-4 h-4" />
-          Early-bird launch pricing
+          What are you waiting for?
         </div>
 
         <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-foreground mb-4">
           Choose Your VibeFast Plan
         </h2>
-
-        <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 max-w-2xl mx-auto mb-8">
-          <p className="text-red-700 dark:text-red-400 font-semibold">
-            🔥 First 50 buyers lock these prices forever — then they rise.
+          <p className="flex items-center mx-auto gap-1 justify-center text-success animate-bounce font-medium">
+            <Gift className="w-4 h-4" /> You will never get a better deal than this limited offer.
           </p>
-          <p className="text-sm text-red-600 dark:text-red-500 mt-1">Prices will raise after 50 sales.</p>
-        </div>
+
+        {/* <div className="bg-gradient-to-r from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4 max-w-fit mx-auto mb-8">
+        <p className="text-red-700 dark:text-red-400 font-semibold">
+            🔥 First 50 buyers get crazy early-bird discounts.
+          </p>
+        </div> */}
       </div>
 
       {/* Pricing Cards - Back to original layout */}
@@ -249,13 +245,13 @@ export function PricingSection() {
                       ) : (
                         <>
                           <span className="text-5xl lg:text-6xl font-bold text-foreground">${plan.price}</span>
-                          <span className="text-lg font-normal text-muted-foreground">USD</span>
+                          {/* <span className="text-lg font-normal text-muted-foreground">USD</span> */}
                         </>
                       )}
                     </div>
                     {plan.fullPrice && (
                       <div className="text-right">
-                        <div className="text-sm text-muted-foreground">Full price</div>
+                        {/* <div className="text-sm text-muted-foreground">Full price</div> */}
                         <div className="text-2xl font-bold text-muted-foreground line-through">${plan.fullPrice}</div>
                       </div>
                     )}

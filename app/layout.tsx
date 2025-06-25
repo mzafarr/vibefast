@@ -6,13 +6,12 @@ import { ThemeProvider } from "@/components/theme-provider"
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ["latin"],
-  display: "swap",
-  preload: true,
-  variable: "--font-bricolage",
+  variable: "--font-bricolage-grotesque",
+  weight: ["200", "300", "400", "500", "600", "700", "800"],
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://vibefast.com"),
+  metadataBase: new URL("https://vibefast.pro"),
   title: {
     default: "VibeFast - Ship React Native Apps Fast with AI Integration",
     template: "%s | VibeFast",
@@ -39,7 +38,7 @@ export const metadata: Metadata = {
     "ship fast mobile",
     "React Native SaaS",
   ],
-  authors: [{ name: "Muhammad Zafar", url: "https://vibefast.com" }],
+  authors: [{ name: "Muhammad Zafar", url: "https://vibefast.pro" }],
   creator: "Muhammad Zafar",
   publisher: "VibeFast",
   robots: {
@@ -56,7 +55,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://vibefast.com",
+    url: "https://vibefast.pro",
     siteName: "VibeFast",
     title: "VibeFast - Ship React Native Apps Fast with AI Integration",
     description:
@@ -79,7 +78,7 @@ export const metadata: Metadata = {
     creator: "@your_twitter_handle", // Replace with your actual Twitter handle
   },
   alternates: {
-    canonical: "https://vibefast.com",
+    canonical: "https://vibefast.pro",
   },
   category: "technology",
   classification: "Business",
@@ -148,7 +147,7 @@ export default function RootLayout({
               name: "VibeFast",
               description:
                 "Complete React Native Expo boilerplate with AI backend, Convex database, authentication, payments, and landing page",
-              url: "https://vibefast.com",
+              url: "https://vibefast.pro",
               author: {
                 "@type": "Person",
                 name: "Muhammad Zafar",

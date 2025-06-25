@@ -83,9 +83,9 @@ const config: Config = {
         marquee: "marquee var(--duration, 30s) linear infinite",
         "marquee-reverse": "marquee-reverse var(--duration, 30s) linear infinite",
       },
-      fontFamily: {
-        bricolage: ["var(--font-bricolage)", "system-ui", "sans-serif"],
-      },
+    },
+    fontFamily: {
+      bricolage: ["var(--font-bricolage)", "system-ui", "sans-serif"],
     },
   },
   plugins: [require("tailwindcss-animate")],

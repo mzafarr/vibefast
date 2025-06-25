@@ -1,23 +1,48 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Slider } from "@/components/ui/slider"
-import { DollarSign, TrendingUp, Users } from "lucide-react"
+import * as React from "react";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Slider } from "@/components/ui/slider";
+import { DollarSign, TrendingUp, Users } from "lucide-react";
+import Link from "next/link";
 
 const mockReferrals = [
-  { name: "michael k.", avatar: "MK", amount: 99, status: "Conversion", date: "December 12, 2023" },
-  { name: "Mustapha", avatar: "MP", amount: 99, status: "Conversion", date: "December 10, 2023" },
-  { name: "Clarence", avatar: "CL", amount: 99, status: "Conversion", date: "December 10, 2023" },
-  { name: "Logan", avatar: "LG", amount: 99, status: "Conversion", date: "December 10, 2023" },
-]
+  {
+    name: "michael k.",
+    avatar: "MK",
+    amount: 99,
+    status: "Conversion",
+    date: "December 12, 2023",
+  },
+  {
+    name: "Mustapha",
+    avatar: "MP",
+    amount: 99,
+    status: "Conversion",
+    date: "December 10, 2023",
+  },
+  {
+    name: "Clarence",
+    avatar: "CL",
+    amount: 99,
+    status: "Conversion",
+    date: "December 10, 2023",
+  },
+  {
+    name: "Logan",
+    avatar: "LG",
+    amount: 99,
+    status: "Conversion",
+    date: "December 10, 2023",
+  },
+];
 
 export function AffiliateHeroSection() {
-  const [referralCount, setReferralCount] = React.useState([24])
-  const earningsPerReferral = 99
-  const totalEarnings = referralCount[0] * earningsPerReferral
+  const [referralCount, setReferralCount] = React.useState([24]);
+  const earningsPerReferral = 99;
+  const totalEarnings = referralCount[0] * earningsPerReferral;
 
   return (
     <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-24">
@@ -33,8 +58,12 @@ export function AffiliateHeroSection() {
             </h1>
 
             <p className="text-lg lg:text-xl text-muted-foreground max-w-xl">
-              VibeFast is the #1 React Native boilerplate to ship mobile apps in days, not weeks. Loved by{" "}
-              <span className="font-semibold text-foreground">1,000+ developers</span>.
+              VibeFast is the #1 React Native boilerplate to ship mobile apps in
+              days, not weeks. Loved by{" "}
+              <span className="font-semibold text-foreground">
+                1,000+ developers
+              </span>
+              .
             </p>
 
             <div className="flex flex-wrap gap-4">
@@ -56,7 +85,9 @@ export function AffiliateHeroSection() {
               size="lg"
               className="bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-bold text-lg py-6 px-8 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              Become An Affiliate
+              <Link href="https://vibefast.lemonsqueezy.com/affiliates" target="_blank">
+                Become An Affiliate
+              </Link>
             </Button>
           </div>
         </div>
@@ -79,29 +110,42 @@ export function AffiliateHeroSection() {
                 </div>
 
                 {mockReferrals.map((referral, index) => (
-                  <div key={index} className="grid grid-cols-4 gap-4 items-center py-2">
+                  <div
+                    key={index}
+                    className="grid grid-cols-4 gap-4 items-center py-2"
+                  >
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
                         {referral.avatar}
                       </div>
-                      <span className="text-sm text-foreground">{referral.name}</span>
+                      <span className="text-sm text-foreground">
+                        {referral.name}
+                      </span>
                     </div>
 
                     <div className="flex items-center gap-2">
                       <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center text-white text-xs font-bold">
                         RO
                       </div>
-                      <span className="text-sm text-muted-foreground">Rafeh Qazi</span>
+                      <span className="text-sm text-muted-foreground">
+                        Rafeh Qazi
+                      </span>
                     </div>
 
                     <div className="flex items-center gap-2">
-                      <Badge className="bg-green-100 text-green-700 hover:bg-green-100">{referral.status}</Badge>
-                      <span className="text-green-600 font-bold text-lg">+ ${referral.amount}</span>
+                      <Badge className="bg-green-100 text-green-700 hover:bg-green-100">
+                        {referral.status}
+                      </Badge>
+                      <span className="text-green-600 font-bold text-lg">
+                        + ${referral.amount}
+                      </span>
                       <span className="text-xl">🤑</span>
                     </div>
 
                     <div className="text-right">
-                      <div className="text-sm text-muted-foreground">{referral.date}</div>
+                      <div className="text-sm text-muted-foreground">
+                        {referral.date}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -120,7 +164,10 @@ export function AffiliateHeroSection() {
                 today
               </h3>
               <p className="text-muted-foreground">
-                And you would help <span className="font-semibold text-foreground">{referralCount[0]} developers</span>{" "}
+                And you would help{" "}
+                <span className="font-semibold text-foreground">
+                  {referralCount[0]} developers
+                </span>{" "}
                 quit their 9-5 and build their dreams
               </p>
             </div>
@@ -138,17 +185,21 @@ export function AffiliateHeroSection() {
               <div className="flex justify-between text-sm text-muted-foreground">
                 <span>1 referral</span>
                 <div className="text-center">
-                  <div className="font-bold text-2xl text-foreground">{referralCount[0]}</div>
+                  <div className="font-bold text-2xl text-foreground">
+                    {referralCount[0]}
+                  </div>
                   <div>referrals</div>
                 </div>
                 <span>100 referrals</span>
               </div>
             </div>
 
-            <div className="text-sm text-muted-foreground italic">"Rafeh made $300 in 24 hours"</div>
+            <div className="text-sm text-muted-foreground italic">
+              "Rafeh made $300 in 24 hours"
+            </div>
           </div>
         </div>
       </div>
     </section>
-  )
+  );
 }

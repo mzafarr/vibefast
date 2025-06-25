@@ -2,12 +2,12 @@
 
 import * as React from "react"
 import { User, CreditCard, Shield, Cloud, Sparkles, MoreHorizontal, Check, ExternalLink } from "lucide-react"
-import { Button } from "@/components/ui/button"
 
 const featuresData = {
   onboarding: {
     id: "onboarding",
     name: "Onboarding",
+    description: "Onboard the user the right way",
     icon: User,
     url: "https://docs.expo.dev/",
     content: [
@@ -21,23 +21,25 @@ const featuresData = {
   payments: {
     id: "payments",
     name: "Payments",
+    description: "Avoid the headache of setting up payments that work!",
     icon: CreditCard,
     url: "https://www.revenuecat.com/",
     content: [
       "RevenueCat Integration",
       "In-App Purchases",
-      "Subscription Management",
+      "Subscription, One-time Purchases",
       "Payment Processing",
-      "Cross-platform receipts",
       "Time saved: 8 hours",
     ],
   },
   authentication: {
     id: "authentication",
     name: "Authentication",
+    description: "All options that you need",
     icon: Shield,
     url: "https://docs.convex.dev/auth",
     content: [
+      "Guest Login",
       "Social Login (Google, Apple)",
       "Email/Password Auth",
       "User Management",
@@ -49,28 +51,29 @@ const featuresData = {
   database: {
     id: "database",
     name: "Database",
+    description: "Backend that handles everything",
     icon: Cloud,
     url: "https://convex.dev/",
     content: [
       "Convex Real-time Database",
       "User Profile Management",
-      "CRUD Operations",
+      "File Storage",
       "Real-time Sync",
-      "Serverless functions",
+      "Secure Storage",
       "Time saved: 8 hours",
     ],
   },
   "ai-backend": {
     id: "ai-backend",
     name: "AI Backend",
+    description: "Multi-model AI wrapper that works",
     icon: Sparkles,
     url: "https://openai.com/",
     content: [
-      "OpenAI GPT-4 Integration",
-      "Claude 3.5 Sonnet Support",
+      "OpenAI, Claude, Gemini, etc Integration",
+      "Image generation, chatbot, image analysis, etc",
       "Secure API Key Management",
       "Multiple AI Model Support",
-      "Custom Prompt Templates",
       "Streaming Responses",
       "Error Handling & Retries",
       "Cost Optimization",
@@ -80,16 +83,18 @@ const featuresData = {
   more: {
     id: "more",
     name: "More",
+    description: "Everything else you'll need",
     icon: MoreHorizontal,
     url: "https://expo.dev/",
     content: [
       "Push Notifications (Expo)",
       "Analytics Setup",
       "App Store Deployment",
+      "Play Store Deployment",
       "Landing Page Template",
       "Comprehensive Documentation",
       "Video Tutorials",
-      "Time saved: 20+ hours",
+      "Time saved: countless hours",
     ],
   },
 }
@@ -98,38 +103,28 @@ const featuresData = {
 const TechIcon = ({ name, url }: { name: string; url: string }) => {
   const icons: Record<string, React.ReactNode> = {
     revenuecat: (
-      <div className="w-8 h-8 bg-orange-500 rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">RC</span>
+      <div className="w-16 h-8 rounded-lg flex items-center justify-center">
+       <img src={"icons/rc.svg"} />
       </div>
     ),
     convex: (
-      <div className="w-8 h-8 bg-orange-600 rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">CX</span>
+      <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+       <img src={"icons/convex.svg"} />
       </div>
     ),
     openai: (
-      <div className="w-8 h-8 bg-green-600 rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">AI</span>
+      <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+       <img src={"icons/gpt.webp"} />
       </div>
     ),
     claude: (
-      <div className="w-8 h-8 bg-purple-600 rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">CL</span>
-      </div>
-    ),
-    apple: (
-      <div className="w-8 h-8 bg-gray-800 rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">🍎</span>
-      </div>
-    ),
-    google: (
-      <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">G</span>
+      <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+       <img src={"icons/claude.webp"} />
       </div>
     ),
     expo: (
-      <div className="w-8 h-8 bg-black rounded-lg flex items-center justify-center">
-        <span className="text-white font-bold text-sm">EX</span>
+      <div className="w-8 h-8 rounded-lg flex items-center justify-center">
+       <img src={"icons/expo.webp"} />
       </div>
     ),
   }
@@ -190,29 +185,25 @@ export function FeaturesSection() {
 
     return (
       <div key={activeFeatureTab} className="bg-muted/50 p-6 lg:p-8 rounded-lg">
-        <div className="flex items-center justify-between mb-6">
-          <h3 className="text-xl font-bold text-foreground">{feature.name}</h3>
-          <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-primary">
+        <div className="flex items-center justify-between mb-4">
+          <h3 className="text-2xl font-semibold text-foreground">{feature.name} |<span className="font-normal text-lg text-muted-foreground"> {feature.description}</span></h3>
+          {/* <Button variant="ghost" size="sm" asChild className="text-muted-foreground hover:text-primary">
             <a href={feature.url} target="_blank" rel="noopener noreferrer">
               <ExternalLink className="w-4 h-4" />
             </a>
-          </Button>
+          </Button> */}
         </div>
 
         {/* Technology Icons */}
-        <div className="flex flex-wrap gap-3 mb-6">
+        {/* <div className="flex flex-wrap gap-3 mb-6">
           {feature.id === "payments" && (
             <>
               <TechIcon name="revenuecat" url="https://www.revenuecat.com/" />
-              <TechIcon name="apple" url="https://developer.apple.com/app-store/" />
-              <TechIcon name="google" url="https://play.google.com/console/" />
             </>
           )}
           {feature.id === "authentication" && (
             <>
               <TechIcon name="convex" url="https://convex.dev/" />
-              <TechIcon name="google" url="https://developers.google.com/identity" />
-              <TechIcon name="apple" url="https://developer.apple.com/sign-in-with-apple/" />
             </>
           )}
           {feature.id === "database" && (
@@ -231,11 +222,11 @@ export function FeaturesSection() {
               <TechIcon name="expo" url="https://expo.dev/" />
             </>
           )}
-        </div>
+        </div> */}
 
         <ul className="space-y-4">
           {feature.content.map((item, index) => (
-            <li key={index} className="flex items-start gap-3 text-muted-foreground">
+            <li key={index} className="flex items-start gap-3 text-muted-foreground text-lg">
               <Check className="w-5 h-5 text-green-500 flex-shrink-0 mt-1" />
               <span className={item.includes("Time saved") ? "text-green-600 dark:text-green-400 font-semibold" : ""}>
                 {item}
@@ -249,7 +240,7 @@ export function FeaturesSection() {
 
   return (
     <section className="container mx-auto px-4 sm:px-6 py-16 lg:py-24">
-      <div className="max-w-3xl mx-auto text-center mb-16">
+      <div className="max-w-3xl mx-auto text-center mb-10">
         <p className="font-mono text-primary text-sm mb-4">let launchTime = "Today"</p>
         <h2 className="text-3xl sm:text-4xl lg:text-6xl font-bold tracking-tighter text-foreground">
           Vibe code today and{" "}
